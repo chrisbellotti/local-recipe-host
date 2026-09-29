@@ -15,7 +15,7 @@ layout: default
   <ol class="recipe-list" id="recipe-list">
     {% for r in recipes %}
     <li data-title="{{ r.title | downcase | escape }}"
-        data-text="{{ r.content | strip_html | downcase | normalize_whitespace | escape }}"
+        data-text="{{ r.content | split: '<h2 id="instructions"' | first | strip_html | downcase | normalize_whitespace | escape }}"
         data-tags="{{ r.tags | join: '|' | escape }}">
       <a href="{{ r.url | relative_url }}">
         <span class="r-title">{{ r.title }}</span>
