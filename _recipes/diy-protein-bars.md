@@ -5,9 +5,13 @@ source_type: instagram
 added: 2026-09-29
 servings: 14
 tags: [protein, snack, dessert, high-protein, make-ahead]
+macros:
+  calories: 96
+  protein: 9
+  carbs: 3
+  fat: 4
+macros_note: Calories and protein are from the original post. Carbs and fat are estimates (net carbs, assuming Lily's chocolate).
 ---
-
-96 calories and 9g protein each.
 
 ## Ingredients
 

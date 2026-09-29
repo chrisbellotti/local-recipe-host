@@ -42,13 +42,29 @@
 
   const body = document.querySelector('.recipe-body');
   if (body) {
-    body.querySelectorAll('li').forEach(li => {
-      li.tabIndex = 0;
-      const toggle = () => li.classList.toggle('done');
-      li.addEventListener('click', toggle);
-      li.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-      });
+    // Ingredients and Instructions: tap to cross off, with a small hint under each heading.
+    const sections = [
+      [/^ingredients$/i, 'Tap ingredients to cross them off'],
+      [/^instructions$/i, 'Tap a step to mark it done'],
+    ];
+    sections.forEach(([name, text]) => {
+      const heading = [...body.querySelectorAll('h2')].find(h => name.test(h.textContent.trim()));
+      if (!heading) return;
+      const hint = document.createElement('p');
+      hint.className = 'section-hint';
+      hint.textContent = text;
+      heading.after(hint);
+      for (let el = hint.nextElementSibling; el && el.tagName !== 'H2'; el = el.nextElementSibling) {
+        const items = el.matches('li') ? [el] : el.querySelectorAll('li');
+        items.forEach(li => {
+          li.tabIndex = 0;
+          const toggle = () => li.classList.toggle('done');
+          li.addEventListener('click', toggle);
+          li.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+          });
+        });
+      }
     });
     if ('wakeLock' in navigator) {
       const lock = () => navigator.wakeLock.request('screen').catch(() => {});

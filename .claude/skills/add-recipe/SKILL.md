@@ -39,6 +39,12 @@ cook_time: 25 min
 total_time: 35 min
 tags: [tofu, korean, vegetarian, weeknight]
 image: https://...   # web sources only; never Instagram/TikTok CDN links (they expire)
+macros:              # per serving; see "Macros" below
+  calories: 320
+  protein: 24
+  carbs: 18
+  fat: 14
+macros_note: Estimated from the ingredient list (fairlife 2% milk assumed).
 ---
 ```
 
@@ -66,8 +72,21 @@ Formatting rules:
 - Units: `tsp`, `tbsp`, `cup`, `oz`, `lb`, `g`, `ml`, `min`. Fractions as `1/2`. Keep the source's measurement system; don't convert.
 - Keep amounts exactly as given. If a caption gives no amount, write "to taste" or leave the amount off. Never make one up.
 - Rewrite steps as clear, numbered, imperative sentences. Split run-on caption text into separate steps. Put oven temperatures and times in the step where they're used.
+- Ingredients render as checkboxes, so keep one ingredient per bullet.
 - Strip emojis, hashtags, "link in bio", and sponsor text.
 - Omit `## Notes` if there's nothing useful.
+
+## Macros
+
+Every recipe gets a `macros` block (per serving: `calories`, `protein`, `carbs`, `fat`; plain numbers, grams for the last three). The recipe page renders it as a Nutrition section.
+
+- **Stated in the source**: use those numbers exactly. If only some are given (e.g. calories and protein), estimate the rest and say so in `macros_note`.
+- **Not stated**: estimate from the ingredients and `servings`. Sum each ingredient's macros for the whole batch, then divide by servings. If `servings` is unknown, ask the user or skip `macros` rather than guessing. Round to whole numbers.
+- **Look up brands** when an ingredient names one or the brand matters (protein powder, Lily's chocolate, fairlife milk, Greek yogurt, tortillas, etc.). Search the brand's nutrition label online rather than using a generic entry. For unbranded ingredients, use USDA-style values.
+- **Milk defaults to fairlife 2%** (about 120 cal, 13g protein, 6g carbs, 5g fat per cup). When a source just says "milk", write it as `fairlife 2% milk` in the ingredients and use those macros. Keep the source's version if it names another kind (fat-free fairlife, whole, oat, almond, etc.). Cream, half-and-half and buttermilk are not "milk".
+- Always set `macros_note` when anything was estimated or assumed, in one short sentence (e.g. "Estimated from ingredients; fairlife 2% milk assumed."). Omit it only when every number came from the source.
+- Don't put nutrition figures in the body text; the front matter is the one place for them.
+- Tell the user in the final message which numbers were estimated and which brand values were used.
 
 ## 4. Tags
 

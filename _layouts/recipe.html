@@ -19,8 +19,33 @@ layout: default
     {% endif %}
   </header>
   {% if page.image %}<img class="hero" src="{{ page.image }}" alt="" loading="lazy">{% endif %}
+  {% if page.macros %}
+  {% assign mp = page.macros.protein | default: 0 %}
+  {% assign mc = page.macros.carbs | default: 0 %}
+  {% assign mf = page.macros.fat | default: 0 %}
+  {% assign mt = mp | plus: mc | plus: mf %}
+  <section class="macros" aria-labelledby="macros-title">
+    <h2 id="macros-title">Nutrition</h2>
+    {% if page.macros.calories %}
+    <p class="macro-cal"><span class="macro-cal-num">{{ page.macros.calories }}</span><span class="macro-cal-unit">calories per serving</span></p>
+    {% endif %}
+    {% if mt > 0 %}
+    <div class="macro-bar" role="img" aria-label="Protein {{ mp }}g, carbs {{ mc }}g, fat {{ mf }}g">
+      <span class="seg seg-protein" style="flex-grow: {{ mp }}"></span>
+      <span class="seg seg-carbs" style="flex-grow: {{ mc }}"></span>
+      <span class="seg seg-fat" style="flex-grow: {{ mf }}"></span>
+    </div>
+    <ul class="macro-legend">
+      <li class="protein"><span class="macro-g">{{ mp }}g</span><span class="macro-name">Protein</span></li>
+      <li class="carbs"><span class="macro-g">{{ mc }}g</span><span class="macro-name">Carbs</span></li>
+      <li class="fat"><span class="macro-g">{{ mf }}g</span><span class="macro-name">Fat</span></li>
+    </ul>
+    {% endif %}
+    {% if page.macros_note %}<p class="macros-note">{{ page.macros_note }}</p>{% endif %}
+  </section>
+  {% endif %}
   <div class="recipe-body">
     {{ content }}
   </div>
-  <p class="hint">Tap an ingredient or step to cross it off.</p>
+  {% include flourish.html %}
 </article>
