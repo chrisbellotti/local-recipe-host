@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<section class="index">
+  <div class="controls">
+    <label class="visually-hidden" for="q">Search recipes</label>
+    <input id="q" type="search" placeholder="Search by name or ingredient" autocomplete="off">
+    <div id="tag-filter" class="tag-filter" role="group" aria-label="Filter by tag"></div>
+  </div>
+
+  {% assign recipes = site.recipes | sort: "added" | reverse %}
+  {% if recipes.size == 0 %}
+    <p class="empty">No recipes yet. Ask Claude to add one.</p>
+  {% else %}
+  <ol class="recipe-list" id="recipe-list">
+    {% for r in recipes %}
+    <li data-title="{{ r.title | downcase | escape }}"
+        data-text="{{ r.content | strip_html | downcase | normalize_whitespace | escape }}"
+        data-tags="{{ r.tags | join: '|' | escape }}">
+      <a href="{{ r.url | relative_url }}">
+        <span class="r-title">{{ r.title }}</span>
+        <span class="r-meta">
+          {% if r.total_time %}<span>{{ r.total_time }}</span>{% endif %}
+          {% if r.tags %}<span>{{ r.tags | join: ", " }}</span>{% endif %}
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="empty" id="no-match" hidden>Nothing matches. Try another word or clear the tag.</p>
+  {% endif %}
+</section>

@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="recipe">
+  <header class="recipe-head">
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}
+    <dl class="facts">
+      {% if page.servings %}<div><dt>Serves</dt><dd>{{ page.servings }}</dd></div>{% endif %}
+      {% if page.prep_time %}<div><dt>Prep</dt><dd>{{ page.prep_time }}</dd></div>{% endif %}
+      {% if page.cook_time %}<div><dt>Cook</dt><dd>{{ page.cook_time }}</dd></div>{% endif %}
+      {% if page.total_time %}<div><dt>Total</dt><dd>{{ page.total_time }}</dd></div>{% endif %}
+    </dl>
+    {% if page.tags %}
+    <ul class="tags">{% for t in page.tags %}<li><a href="{{ '/' | relative_url }}?tag={{ t | url_encode }}">{{ t }}</a></li>{% endfor %}</ul>
+    {% endif %}
+    {% if page.source %}
+    <p class="source">From <a href="{{ page.source }}" rel="noopener">{{ page.source_name | default: page.source }}</a></p>
+    {% endif %}
+  </header>
+  {% if page.image %}<img class="hero" src="{{ page.image }}" alt="" loading="lazy">{% endif %}
+  <div class="recipe-body">
+    {{ content }}
+  </div>
+  <p class="hint">Tap an ingredient or step to cross it off.</p>
+</article>
