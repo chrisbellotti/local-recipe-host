@@ -1,85 +1,99 @@
-# Cilantro lime chicken crispy with honey
+# Chicken Parm Lasagna
 
-I think cilantro lime chicken fell under my radar. I can’t believe this was the first time I’ve made this. The lime and cilantro with all the spices definitely made this sandwich a new one to add to the list.
+Potentially the most indulgent meal prep you’ll ever make - this is pure comfort food that packs 60g of Protein per slice.
 
-Recipe
+Per Serving (Makes 10)
+685 Calories
+60g Protein
+64g Carbs
+23g Fat
 
-Fried chicken breast
-Dredge the chicken in flour egg then corn flakes and air fry at 385F for 18 to 20 minutes flipping halfway through or till an internal of 165F is reached. 184 calories 40g protein
+—
 
-Cilantro lime sauce
-In a pan add 1 tbsp avocado oil, 1/2 cup lime juice, 1tbsp honey, 1tsp cumin, salt and pepper, 3 garlic cloves chopped, 1/2 cup water. Reduce a little over medium heat add half a cup of chopped cilantro
-120 calories
+12 lightly breaded frozen chicken breasts
+(I used Just Bare, but most stores will have a few options)
 
-Ciabatta bread
-115 calories 5g protein
+1360g (2 Jars) Carbone Vodka sauce*
+900g (32oz) 2% Cottage cheese
 
-Cucumber salad
-Slice Cucumber cabbage and jalapeño, add honey pickle juice, salt pepper, onion powder, garlic powder, lime zest. Shake and enjoy
+400g (14oz) reduced fat mozzarella
+100g (3.5oz) parmigiano reggiano
+
+420g (15oz) no-boil lasagna sheets
+
+—
+
+*I usually don’t give brand recommendations, but in this case it’s unique. The Carbone Vodka Sauce specifically is one of the lowest calorie red sauces you’ll find on shelf - while also being a really well flavored sauce in general. The reason it’s so low calorie is because they designed it to be an “Add cream” sauce - AKA, instead of adding the cream/fats themselves in production, they leave it out and you are meant to add in heavy cream when you prepare it yourself. This opens the door for substituting out the cream for lower cal, higher protein options (like here, where I used blended cottage cheese instead). You can sub it out for other low cal red sauces as well, but this one is uniquely flavorful for the calories. Not sponsored + I don’t do brand deals, just a unique find!
+
+Also, if you can’t find a good lightly breaded chicken option, you could also make this recipe using shredded rotisserie chicken or homemade grilled chicken!
+
+—
+
+I used a foil 15”x11”x3” roasting pan that you can find in grocery stores
 
 
-# One-Pan Greek Parmesan Chicken & Potatoes with Roasted Garlic Tzaziki 🍋🧄
+# Nacho Chicken Bean Burritos
 
-infer recipe from ingredients and one pan cooking style
+Per Burrito (Makes 12)
+385 Calories
+40g Protein
+50g Carbs (30g Fiber)
+15g Fat
 
-All the flavor, one pan. Less dishes, more delicious. This chicken is crispy, zesty, parmesan-y, bringing the flavors (and smells) of Greece to your kitchen…
+Sheet Pan Meal Prep,
+Episode 11
 
-Ingredients:
--6 chicken thighs, bone-in & skin-on
--2 lemons, juiced
--2 tbsp dijon mustard
--1 1/2 tbsp oregano
--1 tbsp paprika
--2 tsp salt
--2 tsp black pepper
--2 tsp garlic powder
--2 tbsp lemon zest
--8 garlic cloves, smashed
--5 tbsp olive oil
--1/2 cup parmesan cheese, grated
--Fresh parsley and dill, for garnish
--1.5 lb (680g) baby golden potatoes, halved
+-
 
-Garlic Parmesan Butter:
--1/4 cup butter
--1 cup parmesan cheese, grated
--5 garlic cloves
--2 tsp black pepper
+Chipotle Chicken
+1120g (40oz) boneless skinless chicken thighs
+30g (2 Tbsp) diced chipotle peppers in adobo
+20g (1 Tbsp) honey
+15g (1 Tbsp) avocado oil
+10g (2 tsp) apple cider vinegar
+5 garlic cloves, grated
+1.5 Tbsp coarse salt
+Chipotle chili powder, Garlic powder, Black pepper, to taste
 
-Roasted Garlic Tzaziki:
--2 garlic heads (roasted with 2 tbsp olive oil & 2 tsp salt)
--1 tbsp fresh dill, finely chopped
--1/3 cup grated cucumber
--1 cup plain greek yogurt
--1 tsp salt
--1 tbsp lemon juice
--1 tbsp olive oil
+High-Protein Nacho Cheese Sauce*
+450g (1 tub/~2 cups) 2% cottage cheese
+10 slices reduced-fat American cheese
+60g (2 Mac n cheese packets) cheddar powder
+1 jalapeño, core and seeds removed
+160g (⅔ cup) fat-free milk
+Salt and garlic powder, to taste
 
-# Crispy Cheese Smashed Sweet Potato Pancakes + Chilli Fried Egg
+Refried Beans
+2 cans Amy’s refried beans
+240g (1 cup) 0% Greek yogurt
+1 bundle cilantro, finely chopped
 
-Serves 2
+Tortillas
+12 low-carb burrito-size tortillas
 
-Ingredients
+-
 
-4 medium or 6 small sweet potatoes
-4-6 small handfuls cheddar cheese, or plant based/vegan cheese works really well for this
-Salt and pepper
-2 eggs
-1-2 tbsp crispy chilli oil, I used Lao Gan Ma (Pesto also works well as a substitute just follow the same steps with some additional oil to cook the egg)
+*This makes 2x the nacho cheese needed for the burritos. I make extra 1.) in order to use a whole tub of cottage cheese and 2.) to have extra to dip in
 
-Garnish
-Creme fraiche or yoghurt, plant-based alternative for vegan
-Pickled red onions
-More chilli crisp
-Chives or spring onion, sliced
+-
 
-Method
+Instructions
 
-Cook potatoes | Prick the potatoes all over then microwave on high until tender - around 15-20 minutes | Smash between two sheets of baking paper with a burger press ( mine is from @gourmeteasyonline ), spatula or pan
+1.) Combine chipotle peppers, honey, avocado oil, salt, apple cider vinegar, grated garlic, and seasonings. Add chicken thighs and toss until coated (longer marination time = better results)
 
-Fry potato | Heat a non-stick frying pan over a medium high heat | Add the cheese to pan (no need for oil) in small rounds, roughly the same size as the smashed potato | Top with the sweet potato, cook until golden and crispy then flip and cook until golden and crispy on the other side | Do a few at a time if you have space
+2.) Place chicken on a wire rack set over a half-size sheet pan. Bake at 450° for ~25 minutes, flipping halfway. Optional: Broil for 3-5 mins at the end for extra char. Make sure to watch closely towards the end to prevent burning.
 
-Fry eggs | Wipe the pan clean | Heat the chilli oil over a medium heat, crack the eggs in and cook to your liking | I ut a lid on or a bowl over for about 15-20 seconds towards the end to get rid of any bogey-like egg white
+3.) For the nacho cheese, add cottage cheese, American cheese, cheese powder, jalapeño, milk, and seasonings to a blender. Blend for 2-3 mins, until smooth and emulsified. Optional: Warm slightly before blending for smoother texture.
 
-Serve | Stack the sweet potatoes, top with the egg, creme fraiche, pickled onions, chilli crisp and chives or spring onion
+4.) Add refried beans to a large bowl and microwave for 2 mins to loosen.
+Stir in Greek yogurt and chopped cilantro until smooth and creamy.
+
+6.) Lay out 12 tortillas, spread an even layer of refried beans, nacho cheese sauce, and top with diced chicken.
+Roll tightly.
+
+Wrap each burrito in foil or parchment and freeze for long-term storage.
+
+Reheat from frozen in microwave 2-3 mins, then pan fry to crisp the tortilla. Microwave extra nacho cheese sauce to serve 🌯
+
+If you want a no-cooking option you could also just shred up a rotisserie chicken or two, toss with the marinade (remove salt and add to taste after mixing), then build burritos from there! 
 
