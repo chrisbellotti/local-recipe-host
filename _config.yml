@@ -1,6 +1,10 @@
 title: Les chefs de Berwyn
 description: Recipes we actually cook.
 
+# Tags shown as filter buttons on the home page and on recipe pages.
+# Any other tag on a recipe is a hidden search keyword.
+pinned_tags: [breakfast, lunch, dinner, dessert, snack, high-protein, meal-prep, sauce]
+
 # If this repo is NOT named <username>.github.io, set baseurl to "/<repo-name>".
 baseurl: "/local-recipe-host"
 url: "https://chrisbellotti.github.io"

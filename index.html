@@ -5,7 +5,7 @@ layout: default
   <div class="controls">
     <label class="visually-hidden" for="q">Search recipes</label>
     <input id="q" type="search" placeholder="Search by name or ingredient" autocomplete="off">
-    <div id="tag-filter" class="tag-filter" role="group" aria-label="Filter by tag"></div>
+    <div id="tag-filter" class="tag-filter" role="group" aria-label="Filter by tag" data-pinned="{{ site.pinned_tags | join: '|' }}"></div>
   </div>
 
   {% assign recipes = site.recipes | sort: "added" | reverse %}
@@ -21,7 +21,9 @@ layout: default
         <span class="r-title">{{ r.title }}</span>
         <span class="r-meta">
           {% if r.total_time %}<span>{{ r.total_time }}</span>{% endif %}
-          {% if r.tags %}<span>{{ r.tags | join: ", " }}</span>{% endif %}
+          {% assign shown = "" | split: "" %}
+          {% for t in r.tags %}{% if site.pinned_tags contains t %}{% assign shown = shown | push: t %}{% endif %}{% endfor %}
+          {% if shown.size > 0 %}<span>{{ shown | join: ", " | replace: "-", " " }}</span>{% endif %}
         </span>
       </a>
     </li>

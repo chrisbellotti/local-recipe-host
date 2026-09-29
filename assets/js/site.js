@@ -8,10 +8,10 @@
     const noMatch = document.getElementById('no-match');
     let activeTag = new URLSearchParams(location.search).get('tag') || '';
 
-    // Pinned tags always show as buttons; every other tag goes in the "More tags" dropdown.
-    const PINNED = ['breakfast', 'lunch', 'dinner', 'dessert', 'snack', 'high-protein', 'meal-prep', 'sauce'];
+    // Bookmarked tags are buttons (list comes from pinned_tags in _config.yml).
+    // Every other tag is a hidden search keyword.
+    const PINNED = (tagBox.dataset.pinned || '').split('|').filter(Boolean);
     const label = t => t.replace(/-/g, ' ');
-    const tags = [...new Set(items.flatMap(li => (li.dataset.tags || '').split('|').filter(Boolean)))].sort();
     const buttons = PINNED.map(t => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -21,29 +21,23 @@
       tagBox.appendChild(b);
       return b;
     });
-    const others = tags.filter(t => !PINNED.includes(t));
-    const more = document.createElement('select');
-    more.setAttribute('aria-label', 'More tags');
-    more.innerHTML = '<option value="">More tags</option>' +
-      others.map(t => `<option value="${t}">${label(t)}</option>`).join('');
-    more.addEventListener('change', () => setTag(more.value));
-    if (others.length) tagBox.appendChild(more);
+    items.forEach(li => { li.dataset.keywords = label(li.dataset.tags || '').replace(/\|/g, ' ').toLowerCase(); });
+
+    // Old links like ?tag=mexican turn into a search.
+    if (activeTag && !PINNED.includes(activeTag)) { q.value = label(activeTag); activeTag = ''; }
 
     function setTag(t) {
       activeTag = t;
       buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.tag === t));
-      more.value = others.includes(t) ? t : '';
-      more.classList.toggle('active', others.includes(t));
       apply();
     }
-    setTag(activeTag);
 
     function apply() {
       const term = q.value.trim().toLowerCase();
       let shown = 0;
       items.forEach(li => {
         const tagOk = !activeTag || (li.dataset.tags || '').split('|').includes(activeTag);
-        const textOk = !term || li.dataset.title.includes(term) || li.dataset.text.includes(term);
+        const textOk = !term || li.dataset.title.includes(term) || li.dataset.keywords.includes(term) || li.dataset.text.includes(term);
         li.hidden = !(tagOk && textOk);
         if (!li.hidden) shown++;
       });
@@ -53,6 +47,7 @@
       history.replaceState(null, '', url);
     }
     q.addEventListener('input', apply);
+    setTag(activeTag);
   }
 
   const body = document.querySelector('.recipe-body');

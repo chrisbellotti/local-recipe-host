@@ -91,10 +91,12 @@ Every recipe gets a `macros` block (per serving: `calories`, `protein`, `carbs`,
 
 ## 4. Tags
 
-Use 3–6 lowercase tags. Reuse existing tags whenever possible; list them first with
-`grep -h "^tags:" _recipes/*.md | sort -u`.
-The index pins these tags as buttons, so use them whenever they fit, spelled exactly like this: `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `high-protein`, `meal-prep` (portioned into containers for the week), `sauce` (sauces, dressings and dips; give these a `## Pairs well with` section after Instructions). Every other tag lands in a "More tags" dropdown.
-Cover, where they apply: main ingredient or protein, cuisine, meal type (breakfast, dinner, dessert, snack, side), diet (vegetarian, vegan, gluten-free), and effort (weeknight, weekend, make-ahead).
+Tags come in two kinds:
+
+- **Bookmarked tags** (the list is `pinned_tags` in `_config.yml`): `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `high-protein`, `meal-prep` (portioned into containers for the week), `sauce` (sauces, dressings and dips; give these a `## Pairs well with` section after Instructions). These are the only filter buttons on the home page and the only tags shown on recipe pages. Use every one that fits, spelled exactly as written.
+- **Keywords**: 1–3 other lowercase tags that search should find but that may not appear in the recipe text: main ingredient or protein (`chicken`, `tofu`), cuisine (`mexican`, `greek`), diet (`vegetarian`, `gluten-free`), or a trait like `spicy` or `one-pan`. They are never displayed. Reuse existing ones where possible; list them with `grep -h "^tags:" _recipes/*.md | sort -u`.
+
+Put bookmarked tags first, e.g. `tags: [dinner, high-protein, meal-prep, chicken, mexican]`.
 
 ## 5. Publish
 

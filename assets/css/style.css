@@ -63,16 +63,6 @@ main { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
 }
 .tag-filter button:hover { border-color: var(--gold); color: var(--gold-ink); }
 .tag-filter button[aria-pressed="true"] { background: var(--olive); border-color: var(--olive); color: var(--bg); }
-.tag-filter select {
-  appearance: none; -webkit-appearance: none; cursor: pointer;
-  font: 600 .8rem/1 var(--caps); letter-spacing: .1em; text-transform: uppercase;
-  padding: .6rem 2rem .6rem .9rem; border-radius: 2px;
-  border: 1px solid var(--gold); color: var(--gold-ink); background-color: transparent;
-  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-  background-position: right 1rem center, right .7rem center; background-size: .3rem .3rem; background-repeat: no-repeat;
-}
-.tag-filter select option { background: var(--surface); color: var(--ink); text-transform: none; }
-.tag-filter select.active { background-color: var(--olive); border-color: var(--olive); color: var(--bg); }
 
 .recipe-list { list-style: none; margin: 0; padding: 0; }
 .recipe-list li { border-bottom: 1px solid var(--line); text-align: center; }
