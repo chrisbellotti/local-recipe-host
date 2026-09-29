@@ -9,7 +9,7 @@
     let activeTag = new URLSearchParams(location.search).get('tag') || '';
 
     // Pinned tags always show as buttons; every other tag goes in the "More tags" dropdown.
-    const PINNED = ['breakfast', 'lunch', 'dinner', 'dessert', 'snack', 'high-protein', 'meal-prep'];
+    const PINNED = ['breakfast', 'lunch', 'dinner', 'dessert', 'snack', 'high-protein', 'meal-prep', 'sauce'];
     const label = t => t.replace(/-/g, ' ');
     const tags = [...new Set(items.flatMap(li => (li.dataset.tags || '').split('|').filter(Boolean)))].sort();
     const buttons = PINNED.map(t => {

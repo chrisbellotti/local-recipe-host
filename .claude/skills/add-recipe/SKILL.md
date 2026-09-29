@@ -93,7 +93,7 @@ Every recipe gets a `macros` block (per serving: `calories`, `protein`, `carbs`,
 
 Use 3–6 lowercase tags. Reuse existing tags whenever possible; list them first with
 `grep -h "^tags:" _recipes/*.md | sort -u`.
-The index pins these tags as buttons, so use them whenever they fit, spelled exactly like this: `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `high-protein`, `meal-prep` (portioned into containers for the week). Every other tag lands in a "More tags" dropdown.
+The index pins these tags as buttons, so use them whenever they fit, spelled exactly like this: `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `high-protein`, `meal-prep` (portioned into containers for the week), `sauce` (sauces, dressings and dips; give these a `## Pairs well with` section after Instructions). Every other tag lands in a "More tags" dropdown.
 Cover, where they apply: main ingredient or protein, cuisine, meal type (breakfast, dinner, dessert, snack, side), diet (vegetarian, vegan, gluten-free), and effort (weeknight, weekend, make-ahead).
 
 ## 5. Publish
