@@ -7,11 +7,11 @@ servings: 1
 cook_time: 20-25 min
 tags: [breakfast, high-protein, oats, chocolate]
 macros:
-  calories: 398
-  protein: 35
-  carbs: 47
-  fat: 11
-macros_note: Estimated from ingredients, assuming water as the liquid, a typical vanilla whey and a 10g square of sugar-free dark chocolate.
+  calories: 478
+  protein: 44
+  carbs: 51
+  fat: 14
+macros_note: Estimated from ingredients, assuming fairlife 2% milk as the liquid, a typical vanilla whey and a 10g square of sugar-free dark chocolate.
 ---
 
 ## Ingredients
@@ -19,7 +19,7 @@ macros_note: Estimated from ingredients, assuming water as the liquid, a typical
 - 50g oat flour (or oats blended into flour)
 - 30g vanilla protein powder
 - 1/2 tsp baking powder
-- 160ml water or milk
+- 160ml fairlife 2% milk
 - 5g cocoa powder
 - 1 square dark chocolate (sugar-free works)
 - 5g chocolate chunks
@@ -27,7 +27,7 @@ macros_note: Estimated from ingredients, assuming water as the liquid, a typical
 ## Instructions
 
 1. Preheat the oven to 350F (180C).
-2. Mix the oat flour, protein powder, baking powder and water until smooth.
+2. Mix the oat flour, protein powder, baking powder and milk until smooth.
 3. Pour about 1/3 of the batter into a second bowl and stir in the cocoa powder.
 4. Pour the vanilla batter into an oven-safe dish.
 5. Pour the chocolate batter over the top in a swirling motion.
@@ -37,4 +37,4 @@ macros_note: Estimated from ingredients, assuming water as the liquid, a typical
 
 ## Notes
 
-- Using fairlife 2% milk instead of water adds about 80 calories and 9g protein.
+- The original uses water; the milk adds about 80 calories and 9g protein and makes it richer.
