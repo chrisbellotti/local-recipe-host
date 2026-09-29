@@ -72,7 +72,8 @@ Formatting rules:
 - Units: `tsp`, `tbsp`, `cup`, `oz`, `lb`, `g`, `ml`, `min`. Fractions as `1/2`. Keep the source's measurement system; don't convert.
 - Keep amounts exactly as given. If a caption gives no amount, write "to taste" or leave the amount off. Never make one up.
 - Rewrite steps as clear, numbered, imperative sentences. Split run-on caption text into separate steps. Put oven temperatures and times in the step where they're used.
-- Ingredients render as checkboxes, so keep one ingredient per bullet.
+- Keep one ingredient per bullet; each one can be tapped to cross it off.
+- Keep one action per numbered step; the step-by-step guide shows one step per card.
 - Strip emojis, hashtags, "link in bio", and sponsor text.
 - Omit `## Notes` if there's nothing useful.
 
@@ -92,6 +93,7 @@ Every recipe gets a `macros` block (per serving: `calories`, `protein`, `carbs`,
 
 Use 3–6 lowercase tags. Reuse existing tags whenever possible; list them first with
 `grep -h "^tags:" _recipes/*.md | sort -u`.
+The index pins these tags as buttons, so use them whenever they fit, spelled exactly like this: `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `high-protein`, `meal-prep` (portioned into containers for the week). Every other tag lands in a "More tags" dropdown.
 Cover, where they apply: main ingredient or protein, cuisine, meal type (breakfast, dinner, dessert, snack, side), diet (vegetarian, vegan, gluten-free), and effort (weeknight, weekend, make-ahead).
 
 ## 5. Publish

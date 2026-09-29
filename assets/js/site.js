@@ -8,19 +8,35 @@
     const noMatch = document.getElementById('no-match');
     let activeTag = new URLSearchParams(location.search).get('tag') || '';
 
+    // Pinned tags always show as buttons; every other tag goes in the "More tags" dropdown.
+    const PINNED = ['breakfast', 'lunch', 'dinner', 'dessert', 'snack', 'high-protein', 'meal-prep'];
+    const label = t => t.replace(/-/g, ' ');
     const tags = [...new Set(items.flatMap(li => (li.dataset.tags || '').split('|').filter(Boolean)))].sort();
-    tags.forEach(t => {
+    const buttons = PINNED.map(t => {
       const b = document.createElement('button');
       b.type = 'button';
-      b.textContent = t;
-      b.setAttribute('aria-pressed', t === activeTag);
-      b.addEventListener('click', () => {
-        activeTag = activeTag === t ? '' : t;
-        tagBox.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x.textContent === activeTag));
-        apply();
-      });
+      b.dataset.tag = t;
+      b.textContent = label(t);
+      b.addEventListener('click', () => setTag(activeTag === t ? '' : t));
       tagBox.appendChild(b);
+      return b;
     });
+    const others = tags.filter(t => !PINNED.includes(t));
+    const more = document.createElement('select');
+    more.setAttribute('aria-label', 'More tags');
+    more.innerHTML = '<option value="">More tags</option>' +
+      others.map(t => `<option value="${t}">${label(t)}</option>`).join('');
+    more.addEventListener('change', () => setTag(more.value));
+    if (others.length) tagBox.appendChild(more);
+
+    function setTag(t) {
+      activeTag = t;
+      buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.tag === t));
+      more.value = others.includes(t) ? t : '';
+      more.classList.toggle('active', others.includes(t));
+      apply();
+    }
+    setTag(activeTag);
 
     function apply() {
       const term = q.value.trim().toLowerCase();
@@ -37,26 +53,27 @@
       history.replaceState(null, '', url);
     }
     q.addEventListener('input', apply);
-    apply();
   }
 
   const body = document.querySelector('.recipe-body');
   if (body) {
-    // Ingredients and Instructions: tap to cross off, with a small hint under each heading.
-    const sections = [
-      [/^ingredients$/i, 'Tap ingredients to cross them off'],
-      [/^instructions$/i, 'Tap a step to mark it done'],
-    ];
-    sections.forEach(([name, text]) => {
-      const heading = [...body.querySelectorAll('h2')].find(h => name.test(h.textContent.trim()));
-      if (!heading) return;
+    const findSection = name => [...body.querySelectorAll('h2')].find(h => name.test(h.textContent.trim()));
+    // Elements between a heading and the next h2.
+    const sectionEls = heading => {
+      const els = [];
+      for (let el = heading.nextElementSibling; el && el.tagName !== 'H2'; el = el.nextElementSibling) els.push(el);
+      return els;
+    };
+
+    // Ingredients: tap to cross off, with a small hint under the heading.
+    const ingHeading = findSection(/^ingredients$/i);
+    if (ingHeading) {
       const hint = document.createElement('p');
       hint.className = 'section-hint';
-      hint.textContent = text;
-      heading.after(hint);
-      for (let el = hint.nextElementSibling; el && el.tagName !== 'H2'; el = el.nextElementSibling) {
-        const items = el.matches('li') ? [el] : el.querySelectorAll('li');
-        items.forEach(li => {
+      hint.textContent = 'Tap ingredients you have in stock to cross them off';
+      ingHeading.after(hint);
+      sectionEls(hint).forEach(el => {
+        (el.matches('li') ? [el] : el.querySelectorAll('li')).forEach(li => {
           li.tabIndex = 0;
           const toggle = () => li.classList.toggle('done');
           li.addEventListener('click', toggle);
@@ -64,8 +81,74 @@
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
           });
         });
+      });
+    }
+
+    // Instructions: a button that opens a paginated step-by-step card.
+    const stepHeading = findSection(/^instructions$/i);
+    const steps = stepHeading
+      ? sectionEls(stepHeading).flatMap(el => [...(el.matches('ol') ? el.children : el.querySelectorAll('ol > li'))])
+      : [];
+    if (steps.length) {
+      const open = document.createElement('button');
+      open.type = 'button';
+      open.className = 'guide-open';
+      open.textContent = 'Open step-by-step guide';
+      stepHeading.after(open);
+
+      const dlg = document.createElement('dialog');
+      dlg.className = 'guide';
+      dlg.setAttribute('aria-label', 'Step-by-step guide');
+      dlg.innerHTML = `
+        <button type="button" class="guide-close" aria-label="Close">&times;</button>
+        <p class="guide-count" aria-live="polite"></p>
+        <div class="guide-step"></div>
+        <div class="guide-nav">
+          <button type="button" class="guide-prev" aria-label="Previous step">&larr;</button>
+          <div class="guide-dots"></div>
+          <button type="button" class="guide-next" aria-label="Next step">&rarr;</button>
+        </div>`;
+      document.body.appendChild(dlg);
+
+      const $ = s => dlg.querySelector(s);
+      const dots = steps.map((_, i) => {
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.setAttribute('aria-label', `Go to step ${i + 1}`);
+        d.addEventListener('click', () => show(i));
+        $('.guide-dots').appendChild(d);
+        return d;
+      });
+      let cur = 0;
+      function show(i) {
+        cur = Math.max(0, Math.min(steps.length - 1, i));
+        $('.guide-count').textContent = `Step ${cur + 1} of ${steps.length}`;
+        $('.guide-step').innerHTML = steps[cur].innerHTML;
+        $('.guide-prev').disabled = cur === 0;
+        const last = cur === steps.length - 1;
+        $('.guide-next').innerHTML = last ? 'Done' : '&rarr;';
+        $('.guide-next').setAttribute('aria-label', last ? 'Finish' : 'Next step');
+        $('.guide-next').classList.toggle('is-done', last);
+        dots.forEach((d, j) => d.setAttribute('aria-current', j === cur ? 'step' : 'false'));
       }
-    });
+      $('.guide-prev').addEventListener('click', () => show(cur - 1));
+      $('.guide-next').addEventListener('click', () => cur === steps.length - 1 ? dlg.close() : show(cur + 1));
+      $('.guide-close').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') show(cur + 1);
+        if (e.key === 'ArrowLeft') show(cur - 1);
+      });
+      let x0 = null;
+      dlg.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+      dlg.addEventListener('touchend', e => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+      open.addEventListener('click', () => { show(0); dlg.showModal(); });
+    }
     if ('wakeLock' in navigator) {
       const lock = () => navigator.wakeLock.request('screen').catch(() => {});
       lock();

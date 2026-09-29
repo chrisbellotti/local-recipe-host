@@ -4,7 +4,7 @@ summary: Sweet, smoky and spicy honey BBQ chicken over a creamy, lighter mac and
 source_type: instagram
 added: 2026-09-29
 servings: 4
-tags: [chicken, pasta, dinner, high-protein, make-ahead]
+tags: [chicken, pasta, dinner, high-protein, meal-prep]
 macros:
   calories: 511
   protein: 50

@@ -1,5 +1,5 @@
 ---
-title: DIY Protein Bars
+title: DIY Built Puff Protein Bars
 summary: Homemade marshmallow-style protein bars made with gelatin and whey, coated in chocolate.
 source_type: instagram
 added: 2026-09-29

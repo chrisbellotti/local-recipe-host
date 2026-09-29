@@ -63,6 +63,16 @@ main { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
 }
 .tag-filter button:hover { border-color: var(--gold); color: var(--gold-ink); }
 .tag-filter button[aria-pressed="true"] { background: var(--olive); border-color: var(--olive); color: var(--bg); }
+.tag-filter select {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  font: 600 .8rem/1 var(--caps); letter-spacing: .1em; text-transform: uppercase;
+  padding: .6rem 2rem .6rem .9rem; border-radius: 2px;
+  border: 1px solid var(--gold); color: var(--gold-ink); background-color: transparent;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 1rem center, right .7rem center; background-size: .3rem .3rem; background-repeat: no-repeat;
+}
+.tag-filter select option { background: var(--surface); color: var(--ink); text-transform: none; }
+.tag-filter select.active { background-color: var(--olive); border-color: var(--olive); color: var(--bg); }
 
 .recipe-list { list-style: none; margin: 0; padding: 0; }
 .recipe-list li { border-bottom: 1px solid var(--line); text-align: center; }
@@ -108,7 +118,7 @@ main { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
   font-family: "Noto Sans Symbols 2", "Segoe UI Symbol", "Apple Symbols", var(--display); color: var(--gold);
 }
 .recipe-body li { padding: .35rem 0; }
-.recipe-body li { cursor: pointer; }
+.recipe-body ul li { cursor: pointer; }
 .recipe-body ol li::marker { font-family: var(--display); font-weight: 600; color: var(--gold-ink); }
 .recipe-body li.done { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--gold); }
 /* Section hint under Ingredients / Instructions */
@@ -117,6 +127,41 @@ main { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
   margin: -.25rem 0 1rem; font: italic 500 1.15rem/1.2 var(--display); color: var(--gold-ink);
 }
 .section-hint::before, .section-hint::after { content: ""; width: 1.75rem; height: 1px; background: var(--gold); opacity: .6; }
+
+/* Step-by-step guide */
+.guide-open {
+  display: block; margin: -.25rem auto 1.25rem; padding: .7rem 1.4rem; cursor: pointer;
+  font: 600 .8rem/1 var(--caps); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-ink); background: transparent; border: 1px solid var(--gold);
+  outline: 1px solid var(--gold); outline-offset: 3px; border-radius: 0;
+}
+.guide-open:hover { background: var(--olive); border-color: var(--olive); outline-color: var(--olive); color: var(--bg); }
+.guide {
+  width: min(34rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); padding: 2.25rem 1.75rem 1.5rem;
+  background: var(--surface); color: var(--ink); text-align: center;
+  border: 1px solid var(--gold); outline: 1px solid var(--gold); outline-offset: -8px;
+}
+.guide::backdrop { background: rgb(23 26 16 / .6); }
+.guide-close {
+  position: absolute; top: .9rem; right: 1rem; width: 2.25rem; height: 2.25rem; cursor: pointer;
+  font: 400 1.6rem/1 var(--display); color: var(--muted); background: none; border: 0;
+}
+.guide-close:hover { color: var(--gold-ink); }
+.guide-count { margin: 0 0 1.25rem; font: 600 .8rem/1 var(--caps); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-ink); }
+.guide-step {
+  min-height: 9rem; display: flex; align-items: center; justify-content: center;
+  font: 500 1.6rem/1.4 var(--display); padding: 0 .5rem;
+}
+.guide-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.75rem; }
+.guide-prev, .guide-next {
+  min-width: 3rem; height: 3rem; padding: 0 1rem; cursor: pointer;
+  font: 400 1.4rem/1 var(--display); color: var(--gold-ink); background: transparent; border: 1px solid var(--gold);
+}
+.guide-prev:disabled { opacity: .3; cursor: default; }
+.guide-next.is-done { font: 600 .8rem/1 var(--caps); letter-spacing: .14em; text-transform: uppercase; background: var(--olive); border-color: var(--olive); color: var(--bg); }
+.guide-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: .45rem; }
+.guide-dots button { width: .55rem; height: .55rem; padding: 0; border: 1px solid var(--gold); border-radius: 50%; background: transparent; cursor: pointer; }
+.guide-dots button[aria-current="step"] { background: var(--gold); }
 
 /* Nutrition */
 :root { --macro-protein: #5B6236; --macro-carbs: #B08D3E; --macro-fat: #C9B899; }
